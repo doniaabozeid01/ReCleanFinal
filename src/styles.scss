@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+    direction: rtl;
+    text-align: right!important;
+}
+
+
+body {
+  font-family: "Cairo", sans-serif !important;
+}
+
+
+// body {
+//   font-family: "Tajawal", sans-serif !important;
+// }
+
+
+
+// body {
+//   font-family: "IBM Plex Sans Arabic", sans-serif !important;
+// }
+
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+}
+p, li, button {
+  font-weight: 400;
+}
