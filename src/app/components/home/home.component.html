@@ -1,415 +1,281 @@
 <nav class="navbar overflow-hidden">
-    <div class="container nav-inner">
-
-        <!-- Logo -->
-        <div class="logo" href="#hero">
-            <img  src="../../../assets/logoReClean100.png" alt="شعار ReClean" />
-            <span>ReClean</span>
-        </div>
-
-        <!-- Links -->
-        <ul class="nav-links">
-            <li><a href="#hero">الرئيسية</a></li>
-            <li><a href="#about">من نحن</a></li>
-            <li><a href="#services">الخدمات</a></li>
-            <li><a href="#contact">تواصل معنا</a></li>
-        </ul>
-
-        <!-- Button -->
-        <a href="#contact" class="book-btn">01223521144</a>
-
-        <!-- Mobile Menu Icon -->
-        <div class="menu-icon" (click)="toggleMenu()">
-            <span></span><span></span><span></span>
-        </div>
+  <div class="container nav-inner">
+    <!-- Logo -->
+    <div class="logo" href="#hero">
+      <img src="../../../assets/logoReClean100.png" alt="شعار ReClean" />
+      <span>ReClean</span>
     </div>
 
-    <!-- Mobile Menu Dropdown -->
-    <ul class="mobile-menu text-center shadow-0 w-100" [class.active]="menuOpen">
-        <li><a class="text-white" href="#hero">الرئيسية</a></li>
-        <li><a class="text-white" href="#about">من نحن</a></li>
-        <li><a class="text-white" href="#services">الخدمات</a></li>
-        <li><a class="text-white" href="#contact">تواصل معنا</a></li>
-        <!-- <li><a class="text-white bg-danger" href="#contact" class="book-btn bg-info">01223521144</a></li> -->
-        <li>
-            <a href="#contact" class="text-white  book-btn d-block py-2 rounded">
-                01223521144
-            </a>
-        </li>
-
+    <!-- Links -->
+    <ul class="nav-links">
+      <li><a href="#hero">الرئيسية</a></li>
+      <li><a href="#about">من نحن</a></li>
+      <li><a href="#services">الخدمات</a></li>
+      <li><a href="#contact">تواصل معنا</a></li>
     </ul>
-</nav>
 
+    <!-- Button -->
+    <a href="#contact" class="book-btn">
+      {{ footer?.phone || '01223521144' }}
+    </a>
+
+    <!-- Mobile Menu Icon -->
+    <div class="menu-icon" (click)="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <ul class="mobile-menu text-center shadow-0 w-100" [class.active]="menuOpen">
+    <li><a class="text-white" href="#hero">الرئيسية</a></li>
+    <li><a class="text-white" href="#about">من نحن</a></li>
+    <li><a class="text-white" href="#services">الخدمات</a></li>
+    <li><a class="text-white" href="#contact">تواصل معنا</a></li>
+    <li>
+      <a href="#contact" class="text-white book-btn d-block py-2 rounded">
+        {{ footer?.phone || '01223521144' }}
+      </a>
+    </li>
+  </ul>
+</nav>
 
 <!-- HERO -->
 <div class="hero overflow-hidden" id="hero">
-    <div class="container">
-        <div class="text" appScrollReveal="from-left">
-            <h1>عاملة نظافة موثوقة لبيتك من أول يوم</h1>
-            <p>
-                نوفر لك عاملات نظافة مختارات بعناية ومدرّبات جيدًا من جنسيات متعددة
-                تشمل المصريات والأفريقيات و الاندونيسيات و الفلبينيات و الاثيوبيات و غيرهم لمساعدتك في التنظيف اليومي والترتيب والعناية بالمنزل
-                مع أعلى درجات الاحترافية واحترام الخصوصية.
-            </p>
+  <div class="container">
+    <div class="text" appScrollReveal="from-left">
+      <h1>{{ hero?.title }}</h1>
+      <p>
+        {{ hero?.paragraph }}
+      </p>
 
-            <button class="primary-btn"
-                onclick="document.getElementById('services')?.scrollIntoView({behavior:'smooth'})">
-                شاهدي باقات الخدمات
-            </button>
-        </div>
-
-        <div class="hero-img" appScrollReveal="from-right">
-            <img src="../../../assets/2q.jpg" alt="عاملة نظافة محترفة في المنزل" />
-        </div>
+      <button
+        class="primary-btn"
+        (click)="scrollTo((hero?.buttonTarget || '#services').replace('#',''))"
+      >
+        {{ hero?.buttonText }}
+      </button>
     </div>
-</div>
 
+    <div class="hero-img" appScrollReveal="from-right">
+      <img
+        [src]="hero?.heroImageUrl || '../../../assets/2q.jpg'"
+        alt="عاملة نظافة محترفة في المنزل"
+      />
+    </div>
+  </div>
+</div>
 
 <!-- FEATURES -->
 <section class="features container overflow-hidden" id="features">
-    <div class="card" appScrollReveal="from-bottom">
-        <h3>عاملات موثوقات</h3>
-        <p>
-            اختيار دقيق للملفات، وأوراق قانونية مكتملة، ومكتب مرخّص ومسجل رسميًا
-            بسجل تجاري نشط، لضمان أعلى درجات الموثوقية لك ولأسرتك.
-        </p>
-
-    </div>
-
-    <div class="card" appScrollReveal="from-bottom">
-        <h3>تدريب واحترافية</h3>
-        <p>
-            عاملات مدرَّبات على التنظيف، والغسيل، والكي، وتنظيم المنزل
-            بشكل منظم وفعّال، مع برامج تدريب متجددة لضمان تقديم خدمة راقية دائمًا.
-        </p>
-
-    </div>
-
-    <div class="card" appScrollReveal="from-bottom">
-        <h3>دعم ومتابعة</h3>
-        <p>
-            فريق خدمة عملاء يتابع معك بشكل دوري للتأكد من رضاك عن العاملة،
-            مع توفير خدمة توصيل العاملة حتى باب منزلك مجانًا،
-            أو إمكانية استلامها من مقرنا الإداري الرسمي.
-        </p>
-
-    </div>
+  <div
+    class="card"
+    appScrollReveal="from-bottom"
+    *ngFor="let f of features"
+  >
+    <h3>{{ f.title }}</h3>
+    <p>{{ f.text }}</p>
+  </div>
 </section>
-
 
 <!-- STORY / ABOUT -->
 <section class="story container overflow-hidden" id="about">
-    <div class="story-img" appScrollReveal="from-left">
-        <img src="../../../assets/2a.jpg" alt="فريق خدمات عاملات منزلية" />
-    </div>
+  <div class="story-img" appScrollReveal="from-left">
+    <img
+      [src]="about?.imageUrl || '../../../assets/2a.jpg'"
+      alt="فريق خدمات عاملات منزلية"
+    />
+  </div>
 
-    <div class="content" appScrollReveal="from-right">
-        <h2>من نحن في ReClean لخدمات العاملات المنزلية؟</h2>
-        <p>
-            ReClean هي جهة متخصصة في توفير عاملات نظافة من مختلف الجنسيات مقيمات او شهري او بالساعة، 
-            مدرَّبات على مستوى عالٍ من الاحترافية والالتزام. نهتم بأدق التفاصيل في بيتك،
-            ونسعى أن تكون كل زيارة للعاملة تجربة مريحة وآمنة لك ولعائلتك.
-        </p>
-        <ul>
-            <li>اختيار عاملات بخبرة سابقة وخلفية واضحة.</li>
-            <li>متابعة منتظمة مع العميل والعاملة لضمان الجودة.</li>
-            <li>توفير بدائل سريعة في حال عدم التوافق أو وجود أي مشكلة.</li>
-        </ul>
-    </div>
+  <div class="content" appScrollReveal="from-right">
+    <h2>{{ about?.title }}</h2>
+    <p>
+      {{ about?.paragraph }}
+    </p>
+    <ul>
+      <li *ngFor="let b of about?.bullets">{{ b }}</li>
+    </ul>
+  </div>
 </section>
-
 
 <!-- COMMITMENT -->
 <section class="commit overflow-hidden">
-    <div class="container commit-inner" appScrollReveal="fade">
-        <div class="text">
-            <h2>التزامنا تجاهك وتجاه منزلك</h2>
-            <p>
-                نعدك بتجربة سهلة وواضحة، وسياسات شفافة، وعاملات مدرَّبات على احترام
-                خصوصية منزلك وعائلتك، مع مرونة في تغيير المواعيد أو تعديل الزيارات
-                بما يناسب جدولك اليومي.
-            </p>
-            <button class="primary-btn"
-                onclick="document.getElementById('contact')?.scrollIntoView({behavior:'smooth'})">
-                تواصلي مع فريقنا
-            </button>
-        </div>
-
-        <div class="images">
-            <img src="../../../assets/2s.jpg" alt="عاملة تنظف غرفة النوم" />
-            <img src="../../../assets/2d.jpg" alt="عاملة ترتب المطبخ" />
-        </div>
+  <div class="container commit-inner" appScrollReveal="fade">
+    <div class="text">
+      <h2>{{ commitment?.title }}</h2>
+      <p>
+        {{ commitment?.paragraph }}
+      </p>
+      <button
+        class="primary-btn"
+        (click)="scrollTo((commitment?.buttonTarget || '#contact').replace('#',''))"
+      >
+        {{ commitment?.buttonText }}
+      </button>
     </div>
-</section>
 
+    <div class="images">
+      <img
+        *ngFor="let img of commitment?.images"
+        [src]="img.url"
+        alt="صورة من التزامنا"
+      />
+    </div>
+  </div>
+</section>
 
 <!-- SERVICES -->
 <section class="services container overflow-hidden" id="services">
-    <h2>خدمات العاملات المنزلية لدينا</h2>
+  <h2>خدمات العاملات المنزلية لدينا</h2>
 
-    <div class="grid">
-
-        <!-- عاملة نظافة -->
-        <div class="srv-card" appScrollReveal="from-bottom">
-            <img src="../../../assets/2e.jpg" alt="عاملة نظافة">
-            <h3>عاملات نظافة</h3>
-            <p>تنظيف شامل، ترتيب الغرف، المطبخ، والحمامات بأسلوب احترافي ومهارة عالية.</p>
-        </div>
-
-        <!-- خدمات شغالات لجميع الجنسيات -->
-        <div class="srv-card" appScrollReveal="from-right">
-            <img src="../../../assets/severants.jpg" alt="شغالات من عدة جنسيات">
-            <h3>شغالات متعددة الجنسيات</h3>
-            <p>نوفّر عاملات فلبينيات ،اندونسيات , مصريات و افارقه( سودانيات , نيجيريات , اثيوبيات ) وغيرهم بخبرة جاهزة للعمل فورًا. كما نضمن لكم عاملات مدرَّبات على أعلى مستوى في الأعمال المنزلية، ورعاية الأطفال، ورعاية كبار السن، مع إمكانية اختيار العاملة المناسبة حسب احتياجات أسرتكم.</p>
-        </div>
-
-
-        <div class="srv-card" appScrollReveal="from-left">
-            <img src="../../../assets/2h.jpg" alt="تنظيف بعد المناسبات" />
-            <h3>تنظيف ما بعد المناسبات</h3>
-            <p>
-                فريق عاملات لإعادة ترتيب وتنظيف المنزل بعد العزومات
-                والمناسبات الكبيرة بدون أي مجهود منك.
-            </p>
-        </div>
-
-
-        <!-- طباخين وطباخات -->
-        <div class="srv-card" appScrollReveal="from-bottom">
-            <img src="../../../assets/cooks.jpg" alt="طباخين وطباخات">
-            <h3>طباخين وطباخات</h3>
-            <p>طباخة أو طباخ لإعداد وجباتك اليومية وتنظيم المطبخ باحترافية عالية.</p>
-        </div>
-
-        <!-- رعاية مسنين -->
-        <div class="srv-card" appScrollReveal="from-right">
-            <img src="../../../assets/mosennine.jpg" alt="رعاية مسنين">
-            <h3>رعاية مسنين</h3>
-            <p>أخصائيات رعاية مدربات على التعامل الرحيم مع كبار السن واحتياجاتهم الخاصة.</p>
-        </div>
-
-
-        <!-- جليسة أطفال -->
-        <div class="srv-card" appScrollReveal="from-bottom">
-            <img src="../../../assets/baby.jpg" alt="جليسة أطفال">
-            <h3>جليسة أطفال</h3>
-            <p>
-                جليسات أطفال متخصصات ومدرّبات على التعامل مع الأطفال بمختلف الأعمار،
-                للمساعدة في الرعاية اليومية، المتابعة، اللعب،
-                ودعم الطفل في المذاكرة وإنجاز الواجبات المدرسية،
-                في بيئة آمنة ومريحة داخل المنزل.
-            </p>
-        </div>
-
-
-
-
-        <!-- خادمات ومعاملات اسبوعيات -->
-        <div class="srv-card" appScrollReveal="from-left">
-            <img src="../../../assets/2g.jpg" alt="أنظمة خدمة العاملات المنزلية">
-
-            <h3>أنظمة خدمة العاملات المنزلية</h3>
-
-            <p>
-                نقدّم لك 3 خيارات مرنة لخدمات العاملات المنزلية تناسب احتياجاتك اليومية:
-                <br>
-                – <strong>عاملة مقيمة:</strong> داخل المنزل بدوام كامل للعناية الشاملة والتنظيف المستمر.
-                <br>
-                – <strong>زيارات أسبوعية:</strong> لتنظيم وتنظيف المنزل حسب جدول ثابت.
-                <br>
-                – <strong>زيارات بالساعة:</strong> لمهام التنظيف السريعة والجزئية في الوقت الذي يناسبك.
-            </p>
-
-        </div>
-
-
-
-        <!-- سائق خاص -->
-        <div class="srv-card" appScrollReveal="from-right">
-            <img src="../../../assets/driver.jpg" alt="سائق خاص">
-            <h3>سائق خاص</h3>
-            <p>سائقين محترفين مدربين على أعلى standards للسلامة والانضباط.</p>
-        </div>
-
-
-
+  <div class="grid">
+    <div
+      class="srv-card"
+      appScrollReveal="from-bottom"
+      *ngFor="let srv of services"
+      [class.d-none]="!srv.active"
+    >
+      <img [src]="srv.imageUrl" [alt]="srv.title" />
+      <h3>{{ srv.title }}</h3>
+      <p>{{ srv.description }}</p>
     </div>
+  </div>
 </section>
-
 
 <!-- STATS -->
 <section class="stats container overflow-hidden">
-    <div class="stat my-2">+7 سنوات خبرة</div>
-    <div class="stat my-2">+700 عميلة سعيدة</div>
-    <div class="stat my-2">معدل رضا 95٪</div>
+  <div class="stat my-2" *ngFor="let st of stats">{{ st.text }}</div>
 </section>
-
 
 <!-- TESTIMONIALS -->
 <section class="testimonials container overflow-hidden">
-    <p class="section-tag">آراء العملاء</p>
-    <h2>ماذا تقول عميلاتنا عن الخدمة؟</h2>
+  <p class="section-tag">آراء العملاء</p>
+  <h2>ماذا تقول عميلاتنا عن الخدمة؟</h2>
 
-    <owl-carousel-o [options]="customOptions" class="t-carousel">
-        <ng-template carouselSlide *ngFor="let t of testimonials">
-            <div class="t-card ">
+  <owl-carousel-o [options]="customOptions" class="t-carousel">
+    <ng-template carouselSlide *ngFor="let t of testimonials">
+      <div class="t-card">
+        <div class="t-rating">
+          <span class="star">★</span>
+          <span class="rate">{{ t.rating }}</span>
+        </div>
 
-                <!-- Rating -->
-                <div class="t-rating">
-                    <span class="star">★</span>
-                    <span class="rate">4.9</span>
-                </div>
+        <p class="t-text text-end">{{ t.text }}</p>
 
-                <!-- Text -->
-                <p class="t-text text-end">{{ t.text }}</p>
+        <div class="t-divider"></div>
 
-                <!-- Divider -->
-                <div class="t-divider"></div>
-
-                <!-- User -->
-                <div class="t-user">
-                    <img [src]="t.avatar" alt="صورة العميلة" />
-                    <div class="info text-end mx-2">
-                        <h4>{{ t.name }}</h4>
-                        <span>{{ t.job }}</span>
-                    </div>
-                </div>
-
-            </div>
-        </ng-template>
-    </owl-carousel-o>
+        <div class="t-user">
+          <img [src]="t.avatarUrl" alt="صورة العميلة" />
+          <div class="info text-end mx-2">
+            <h4>{{ t.name }}</h4>
+            <span>{{ t.job }}</span>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </owl-carousel-o>
 </section>
-
 
 <!-- BLOG / TIPS -->
 <section class="blog container overflow-hidden">
-    <h2 class="py-3">نصائح لتنظيم بيتك مع العاملة المنزلية</h2>
+  <h2 class="py-3">نصائح لتنظيم بيتك مع العاملة المنزلية</h2>
 
-    <div class="grid">
-        <div class="blog-card shadow-sm" appScrollReveal="from-left">
-            <img src="../../../assets/2z.jpg" alt="تنظيم يوم العاملة" />
-            <h3>إزاي تنسقي يوم العاملة في البيت خطوة بخطوة؟</h3>
-        </div>
-
-        <div class="blog-card shadow-sm" appScrollReveal="from-right">
-            <img src="../../../assets/2x.jpg" alt="قواعد التعامل" />
-            <h3>5 قواعد ذهبية لعلاقة مريحة مع العاملة المنزلية</h3>
-        </div>
-
-        <div class="blog-card shadow-sm" appScrollReveal="from-left">
-            <img src="../../../assets/2v.jpg" alt="قائمة مهام" />
-            <h3>قائمة مهام جاهزة تقدري تبعتها للعاملة قبل الزيارة</h3>
-        </div>
+  <div class="grid">
+    <div
+      class="blog-card shadow-sm"
+      *ngFor="let tip of tips; let i = index"
+      [appScrollReveal]="i % 2 === 0 ? 'from-left' : 'from-right'"
+    >
+      <img [src]="tip.imageUrl" [alt]="tip.title" />
+      <h3>{{ tip.title }}</h3>
     </div>
+  </div>
 </section>
-
 
 <!-- CTA -->
 <section class="cta overflow-hidden" id="contact">
-    <div class="container">
-        <h2>جاهزة تحجزي عاملة نظافة موثوقة لبيتك؟</h2>
-        <p>
-            سيبي بياناتك، وفريقنا هيتواصل معاك يرشح لك أنسب عاملة
-            تناسب أسلوب حياتك واحتياجات بيتك.
-        </p>
-        <button class="primary-btn">
-            تواصلي مع فريق ReClean
-        </button>
-    </div>
+  <div class="container">
+    <h2>{{ cta?.title }}</h2>
+    <p>
+      {{ cta?.paragraph }}
+    </p>
+    <button
+      class="primary-btn"
+      (click)="scrollTo((cta?.buttonTarget || '#contact').replace('#',''))"
+    >
+      {{ cta?.buttonText }}
+    </button>
+  </div>
 </section>
-
-
 
 <!-- STEPS / HOW IT WORKS -->
 <section class="steps mt-5 overflow-hidden" id="steps">
   <div class="container text-center">
-
     <p class="steps-subtitle">٣ خطوات العمل</p>
-<h2 class="steps-title">في ٣ خطوات بسيطة.. هتلاقي العاملة اللي تناسب بيتك من ReClean</h2>
+    <h2 class="steps-title">
+      في ٣ خطوات بسيطة.. هتلاقي العاملة اللي تناسب بيتك من ReClean
+    </h2>
+
     <div class="steps-grid">
-
-      <!-- Step 1 -->
-      <div class="step-card" appScrollReveal="from-left">
+      <div
+        class="step-card"
+        appScrollReveal="from-left"
+        *ngFor="let st of steps; let i = index"
+      >
         <div class="step-icon">
-          <i class="fa-solid fa-phone-volume"></i>
+          <i [class]="st.iconClass"></i>
         </div>
-        <h3>اتصلي بنا</h3>
+        <h3>{{ st.title }}</h3>
         <p>
-          تواصلي معنا على الواتساب أو الهاتف، ونسمع احتياجاتك من حيث نوع الخدمة،
-          نظام العمل، وعدد أفراد الأسرة.
+          {{ st.text }}
         </p>
       </div>
-
-      <!-- Step 2 -->
-      <div class="step-card" appScrollReveal="from-right">
-        <div class="step-icon">
-          <i class="fa-solid fa-images"></i>
-        </div>
-        <h3>نرسل لكِ صور المرشحات</h3>
-        <p>
-          نرسل لكِ صور وبيانات عاملات مناسبات لطلبك، مع توضيح الجنسية،
-          الخبرة، والنظام المتاح (مقيمة, شهري , بالساعة).
-        </p>
-      </div>
-
-      <!-- Step 3 -->
-      <div class="step-card" appScrollReveal="from-left">
-        <div class="step-icon">
-          <i class="fa-solid fa-clipboard-check"></i>
-        </div>
-        <h3>الاختيار والتعاقد</h3>
-        <p>
-          تختاري العاملة الأنسب لكِ، ونستكمل معكِ إجراءات التعاقد
-          وتحديد موعد الوصول أو المقابلة بدون أي تعقيد.
-        </p>
-      </div>
-
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer overflow-hidden">
-    <div class="container footer-content">
-
-        <!-- Column 1 -->
-        <div class="footer-col">
-            <h3 class="logo">ReClean</h3>
-            <p>
-                ReClean شريكك الموثوق في توفير عاملات نظافة وعاملات منزليات محترفات.
-                نهتم براحتك وراحة عيلتك في كل زيارة، ونحرص على تقديم خدمة آمنة ومستقرة.
-            </p>
-        </div>
-
-        <!-- Column 2 -->
-        <div class="footer-col">
-            <h4>روابط سريعة</h4>
-            <ul>
-                <li><a href="#hero">الرئيسية</a></li>
-                <li><a href="#about">من نحن</a></li>
-                <li><a href="#services">الخدمات</a></li>
-                <li><a href="#contact">تواصل معنا</a></li>
-            </ul>
-        </div>
-
-        <!-- Column 3 -->
-        <div class="footer-col">
-            <h4>تواصل معنا</h4>
-            <p>واتساب: ‎+01223521144</p>
-            <p>هاتف: ‎+01223521144</p>
-            <p>الموقع: القاهرة، مصر</p>
-
-            <div class="social">
-                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-            </div>
-        </div>
-
+  <div class="container footer-content">
+    <div class="footer-col">
+      <h3 class="logo">ReClean</h3>
+      <p>
+        {{ footer?.aboutText }}
+      </p>
     </div>
 
-    <div class="footer-bottom">
-        <p>© 2025 ReClean لخدمات العاملات المنزلية. جميع الحقوق محفوظة.</p>
+    <div class="footer-col">
+      <h4>روابط سريعة</h4>
+      <ul>
+        <li *ngFor="let link of footer?.quickLinks">
+          <a [href]="link.target">{{ link.label }}</a>
+        </li>
+      </ul>
     </div>
+
+    <div class="footer-col">
+      <h4>تواصل معنا</h4>
+      <p>واتساب: {{ footer?.whatsapp }}</p>
+      <p>هاتف: {{ footer?.phone }}</p>
+      <p>الموقع: {{ footer?.address }}</p>
+
+      <div class="social">
+        <a [href]="footer?.social?.facebook || '#'"
+          ><i class="fa-brands fa-facebook-f"></i
+        ></a>
+        <a [href]="footer?.social?.instagram || '#'"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+        <a [href]="footer?.social?.whatsapp || '#'"
+          ><i class="fa-brands fa-whatsapp"></i
+        ></a>
+        <a [href]="footer?.social?.tiktok || '#'"
+          ><i class="fa-brands fa-tiktok"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>{{ footer?.copyright }}</p>
+  </div>
 </footer>
